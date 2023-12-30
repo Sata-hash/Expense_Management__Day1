@@ -13,9 +13,8 @@ connectDb();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
-app.get('/',(req,res)=>{
-    res.send("<h1>Hello from server</h1>");
-});
+
+app.use('/api/v1/user',require('./routes/userRoute'));
 const PORT=8080||process.env.PORT;
 
 app.listen(PORT,()=>{
